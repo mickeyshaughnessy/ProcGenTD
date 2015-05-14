@@ -9,7 +9,7 @@ When a human player initiates a game, a controller object is generated alongside
 Controller objects are also generated on the AI server.
 The controller objects receive game updates, to determine which actions are allowed and as input to the AI routine. 
 
-
+![Flowchart](https://github.com/mickeyshaughnessy/ProcGenTD/blob/master/MVC_image.png)
 To do:
 * Write make map module to generate the random maps (image and data structure)
 * Write game server to start game, collect players, and connect to controllers and views.
