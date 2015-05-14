@@ -1,0 +1,68 @@
+digraph {
+
+overlap=false;
+ranksep=equally;
+rankdir=TB;
+  subgraph clusterGames{
+	label="Game Models (Server)";
+  Game1 [   color=darkgoldenrod1,
+	             fontcolor=navy,
+	             label="GameModel 1",
+      		     style=filled;
+      			fill=darkgoldenrod1,
+	             shape=box];
+  Game2 [   color=darkgoldenrod1,
+	             fontcolor=navy,
+	             label="GameModel 2",
+      		     style=filled;
+      			fill=darkgoldenrod1,
+	             shape=box];
+  }
+  subgraph clusterViews{
+	label="Views (Client Device)";
+  View1 [   color=darkgoldenrod2,
+	             fontcolor=navy,
+	             label="View 1",
+	             shape=box];
+  View2 [   color=darkgoldenrod2,
+	             fontcolor=navy,
+	             label="View 2",
+	             shape=box];
+}
+  
+subgraph clusterControllers{
+	label="Controllers (Client Device or Server) ";
+  	Player1 [   color=darkgoldenrod2,
+	             fontcolor=navy,
+	             label="Player 1",
+	             shape=box];
+  	Player2 [   color=darkgoldenrod2,
+	             fontcolor=navy,
+	             label="Player 2",
+	             shape=box];
+	AI1 [	color=blue,
+	             fontcolor=black,
+	             label="Artificial Player 1",
+	             shape=box];
+
+	}
+#InvisEnd [fill=none,
+	   #	fontcolor=navy,
+	   # label="...", 
+	   # shape=none];
+
+#  Storage [fill=none,
+	    #	fontcolor=navy,
+	    # label="...", 
+	    # shape=none];
+
+  
+  AI1 -> DataLayer [label="action", color=red, fontcolor=red]
+  Player1 -> DataLayer [label="action", color=red, fontcolor=red]
+  DataLayer -> Game1 [label="action", color=blue, fontcolor=blue]
+  DataLayer -> Player1 [label="game_state", color=green, fontcolor=green]
+  DataLayer -> Player2 [label="game_state", color=green, fontcolor=green]
+  DataLayer -> AI1 [label="game_state", color=green, fontcolor=green]
+  Game1 -> View1 [label="game_state", color=green, fontcolor=green]
+  Game1 -> DataLayer [label="game_state", color=green, fontcolor=green, headport=nw]
+}
